@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      <section className="bg-[url('https://images.unsplash.com/photo-1501117716987-c8e2a3b1d4b3')] bg-cover bg-center h-[80vh] flex items-center justify-center">
+      <section className="bg-[url('https://cdn.pixabay.com/photo/2016/11/29/09/17/hotel-1867271_1280.jpg')] bg-cover bg-center h-[80vh] flex items-center justify-center">
         <div className="bg-black bg-opacity-60 text-white p-8 rounded">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to TwixHotel</h1>
           <p className="text-lg md:text-xl">Experience luxury, comfort, and elegance</p>
@@ -11,11 +11,24 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-10">Featured Rooms</h2>
           <div className="grid gap-8 md:grid-cols-3">
-            {['Deluxe', 'Executive', 'Presidential'].map((room, idx) => (
+            {[
+              {
+                name: 'Deluxe',
+                img: 'https://cdn.pixabay.com/photo/2017/03/27/14/56/bedroom-2178967_1280.jpg',
+              },
+              {
+                name: 'Executive',
+                img: 'https://cdn.pixabay.com/photo/2016/11/18/13/47/hotel-1831072_1280.jpg',
+              },
+              {
+                name: 'Presidential',
+                img: 'https://cdn.pixabay.com/photo/2017/06/24/20/18/luxury-2430590_1280.jpg',
+              },
+            ].map((room, idx) => (
               <div key={idx} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src={`https://source.unsplash.com/400x300/?hotel-room,${idx}`} alt="Room" className="w-full h-56 object-cover" />
+                <img src={room.img} alt={`${room.name} Room`} className="w-full h-56 object-cover" />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{room} Room</h3>
+                  <h3 className="text-xl font-semibold mb-2">{room.name} Room</h3>
                   <p className="text-gray-600 mb-4">A blend of style and comfort perfect for your stay.</p>
                   <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book Now</button>
                 </div>
